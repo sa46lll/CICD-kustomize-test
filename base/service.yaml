@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Service
 metadata:
-  name: koo-api
+  name: dev-koo-api
   labels:
-    run: koo-api
+    run: dev-koo-api
 spec:
   ports:
   - port: 80
     protocol: TCP
   selector:
-    run: koo-api
+    run: dev-koo-api
