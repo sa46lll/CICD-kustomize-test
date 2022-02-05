@@ -6,15 +6,15 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      deployment: koo-api
+      deployment: dev-koo-api
   template:
     metadata:
       labels:
-        deployment: koo-api
+        deployment: dev-koo-api
     spec:
       containers:
       - name: the-container
-        image: koogg/koo-api:latest
+        image: koogg/dev-koo-api:latest
         ports:
         - containerPort: 8080
         livenessProbe:
