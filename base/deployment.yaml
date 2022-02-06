@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: the-deployment
+  name: dev-koo-api-deployment
 spec:
   replicas: 3
   selector:
@@ -19,13 +19,13 @@ spec:
         - containerPort: 8080
         livenessProbe:
           httpGet:
-            path: /
+            path: /actuator/health
             port: 8080
-          initialDelaySeconds: 300
-          periodSeconds: 15
+          initialDelaySeconds: 20    # wait 20 sec before perform first probe
+          periodSeconds: 5
         readinessProbe:
           httpGet:
-          path: /
-          port: 8080
-        initialDelaySeconds: 45
+            path: /actuator/health
+            port: 8080
+        initialDelaySeconds: 20
         periodSeconds: 5
