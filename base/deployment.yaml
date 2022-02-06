@@ -6,14 +6,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      deployment: dev-koo-api
+      app: dev-koo-api
   template:
     metadata:
       labels:
-        deployment: dev-koo-api
+        app: dev-koo-api
     spec:
       containers:
-      - name: dev-koo-api-container
+      - name: dev-koo-api
         image: koogg/dev-koo-api:latest
         ports:
         - containerPort: 8080
