@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: dev-koo-api-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       deployment: dev-koo-api
@@ -13,7 +13,7 @@ spec:
         deployment: dev-koo-api
     spec:
       containers:
-      - name: the-container
+      - name: dev-koo-api-container
         image: koogg/dev-koo-api:latest
         ports:
         - containerPort: 8080
