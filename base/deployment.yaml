@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: the-deployment
+  name: koo-api-deployment
 spec:
   replicas: 3
   selector:
@@ -13,19 +13,19 @@ spec:
         deployment: koo-api
     spec:
       containers:
-      - name: the-container
+      - name: koo-api-container
         image: koogg/koo-api:latest
         ports:
         - containerPort: 8080
         livenessProbe:
           httpGet:
-            path: /
+            path: /actuator/health
             port: 8080
-          initialDelaySeconds: 300
-          periodSeconds: 15
+          initialDelaySeconds: 20
+          periodSeconds: 5
         readinessProbe:
           httpGet:
-          path: /
+          path: /actuator/health
           port: 8080
-        initialDelaySeconds: 45
+        initialDelaySeconds: 20
         periodSeconds: 5
